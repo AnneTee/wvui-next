@@ -42,7 +42,7 @@ The expectations for submitting a patch are:
 
 Patch authors are required to do the following:
 
--   Update the [CHANGELOG](CHANGELOG.md) to describe the new work
+-   Update the CHANGELOG to describe the new work
 -   For components:
     -   Include a Storybook story for each variant of the component. The main story should usually
         contain the most basic state of the component with all props and slots editable via

@@ -10,7 +10,7 @@ Install the library and Vue.js v2:
 npm i --save-prefix= vue@2 @wikimedia/wvui
 ```
 
-WVUI is [semantically versioned](https://semver.org). See the [changelog](CHANGELOG.md) for release
+WVUI is [semantically versioned](https://semver.org). See the changelog for release
 notes.
 
 We recommend pinning WVUI to an exact patch version. For example:
@@ -84,9 +84,9 @@ There is currently one bundle available:
     -   **wvui-icons**.js: the complete iconography (optional).
 
 Each chunk is side-effect free. All chunks are fully compiled ES5 / CSS and require a Vue.js
-runtime. See [peerDependencies](package.json).
+runtime. See peerDependencies.
 
-See the [performance section](DEVELOPERS.md#performance) for related topics.
+See the performance section for related topics.
 
 ## Development
 

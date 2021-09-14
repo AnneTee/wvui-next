@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 <script setup>
 // Import components here.
-import WvuiComponent from '../../../src/components/wvui-component/WvuiComponent.vue';
+// e.g. import WvuiComponent from '../../../src/components/wvui-component/WvuiComponent.vue';
 import DemoComponent from './DemoComponent.vue';
 </script>
 
@@ -23,6 +23,7 @@ from the rest of the content. **Note that the whitespace around code snippets
 is critical; don't omit it.**
 
 You can add a WVUI component directly:
+
 <Wrapper>
 <template v-slot:demo>
 <WvuiComponent :someProp="true" />
@@ -37,6 +38,7 @@ You can add a WVUI component directly:
 </Wrapper>
 
 Or you can add a demo component and import it as a snippet to show the code:
+
 <Wrapper>
 <template v-slot:demo>
 <DemoComponent />

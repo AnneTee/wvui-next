@@ -1,9 +1,12 @@
 module.exports = {
+	lang: 'en-US',
 	title: 'WVUI-next',
+	description: 'Playground for Vue 3 + Vite component library experiments',
 
 	themeConfig: {
+		repo: 'annetee/wvui-next',
 		docsDir: 'docs',
-		lastUpdated: 'Last Updated',
+		lastUpdated: 'Last updated',
 
 		nav: [
 		  {
