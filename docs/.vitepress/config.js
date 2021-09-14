@@ -7,13 +7,6 @@ module.exports = {
 		repo: 'annetee/wvui-next',
 		docsDir: 'docs',
 		lastUpdated: 'Last updated',
-
-		nav: [
-		  {
-			text: 'GitHub',
-			link: 'https://github.com/catrope/wvui-next'
-		  }
-		],
 	
 		sidebar: {
 			'/': [

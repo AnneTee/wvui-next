@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 <script setup>
 // Import components here.
-// e.g. import WvuiComponent from '../../../src/components/wvui-component/WvuiComponent.vue';
+import WvuiButton from '../../../src/components/button/Button.vue';
 import DemoComponent from './DemoComponent.vue';
 </script>
 
@@ -26,12 +26,12 @@ You can add a WVUI component directly:
 
 <Wrapper>
 <template v-slot:demo>
-<WvuiComponent :someProp="true" />
+<WvuiButton :someProp="true">Button</WvuiButton>
 </template>
 <template v-slot:code>
 
 ```vue
-<WvuiComponent :someProp="true"/>
+<WvuiButton :someProp="true">Button</WvuiButton>
 ```
 
 </template>
