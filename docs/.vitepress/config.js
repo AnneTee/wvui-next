@@ -20,7 +20,7 @@ module.exports = {
 			 	{
 					text: 'Introduction',
 					children: [
-						{ text: 'About', link: '/'},
+						{ text: 'About', link: '/' },
 						{ text: 'Getting started', link: '/introduction/getting-started' },
 						{ text: 'Library guiding principles', link: '/introduction/guiding-principles' }
 					]
