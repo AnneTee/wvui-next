@@ -2,13 +2,15 @@
 sidebarDepth: 3
 ---
 
-<script setup>
-import WvuiButton from '../../../src/components/button/Button.vue';
-</script>
-
 # Button
 
-A `<button>` element wrapping slotted content.
+A button wrapping slotted content.
+
+<a href="https://github.com/annetee/wvui-next/edit/main/docs/src/components/button/Button.md" class="docgen-edit-link"></a>
+
+<script setup>
+import WvuiButton from '../../src/components/button/Button.vue';
+</script>
 
 ## Demos
 
@@ -144,22 +146,19 @@ A `<button>` element wrapping slotted content.
 
 ### Props
 
-**TODO:** We could use a better way to describe custom types like PrimaryAction. This is cluttered
-in both the markdown and the resulting table.
-
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| **action** | The kind of action taken when clicked | `PrimaryAction` <br><br>Options:<br>`default` <br>`progressive` <br>`destructive` | `PrimaryAction.Default` |
-| **quiet** | True if button should be visually less prominent | `Boolean` | `false` |
-
-### Slots
-
-| Name | Description | Default |
-| --- | --- | --- |
-| **default** | Button content | - |
+| Prop name | Description                                       | Type          | Values | Default               |
+| --------- | ------------------------------------------------- | ------------- | ------ | --------------------- |
+| action    | See PrimaryAction.                                | PrimaryAction | -      | PrimaryAction.Default |
+| quiet     | True if button should be visually less prominent. | boolean       | -      |                       |
 
 ### Events
 
-| Name | Description | Value |
-| --- | --- | --- |
-| **click** | Emitted on click | - |
+| Event name | Properties | Description |
+| ---------- | ---------- | ----------- |
+| click      |            |
+
+### Slots
+
+| Name    | Description | Bindings |
+| ------- | ----------- | -------- |
+| default |             |          |

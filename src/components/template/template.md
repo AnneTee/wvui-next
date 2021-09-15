@@ -4,8 +4,8 @@ sidebarDepth: 3
 
 <script setup>
 // Import components here.
-import WvuiButton from '../../../src/components/button/Button.vue';
-import DemoComponent from './DemoComponent.vue';
+import WvuiButton from '../src/components/button/Button.vue';
+import DemoComponent from '../src/components/template/examples/DemoComponent.vue';
 </script>
 
 **Don't forget to add your component to `docs/.vitepress/config.js`!**

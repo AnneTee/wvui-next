@@ -33,7 +33,7 @@
 			"files": [
 				"src/**/*.[jt]s",
 				"src/**/*.vue",
-				"docs/**/*.[jt]s",
+				"docs/.vitepress/**/*.[jt]s",
 				"docs/**/*.vue"
 			],
 			"excludedFiles": [ "*.test.ts" ],
