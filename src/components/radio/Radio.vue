@@ -27,6 +27,16 @@
 import { defineComponent, ref, toRef, computed } from 'vue';
 import useModelWrapper, { modelValueProp } from '../../composables/useModelWrapper';
 
+/**
+ * A binary input that always exists in a group, in which only one input can be
+ * on at a time.
+ *
+ * Typical use will involve using v-for to loop through an array of items and
+ * output a Radio component for each one. Each Radio will have the same v-model
+ * and name props, but different inputValue props and label content.
+ *
+ * The v-model value is the inputValue of the Radio that is currently on.
+ */
 export default defineComponent( {
 	name: 'WvuiRadio',
 	props: {
