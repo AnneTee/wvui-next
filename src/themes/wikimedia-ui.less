@@ -5,8 +5,9 @@
 @font-size-base: unit( ( @font-size-base-value ), @wvui-unit ); // Equals `0.875em` at browser default of `16px`.
 @wvui-unit: em;
 
-@size-base: 32 / @font-size-browser / @font-size-base; // equals `2.5em`≈`32px`
-@size-indicator: 12 / @font-size-browser / @font-size-base;
+@size-base: unit( ( 32 / @font-size-browser / @font-size-base-value ), @wvui-unit ); // equals `2.5em`≈`32px`
+@size-base--small: unit( ( 16 / @font-size-browser / @font-size-base-value ), @wvui-unit );
+@size-indicator: unit( ( 12 / @font-size-browser / @font-size-base-value ), @wvui-unit );
 
 @color-quiet--hover: @wmui-color-base0;
 
@@ -30,6 +31,30 @@
 @border-color-input-binary--focus: @color-primary--focus;
 @border-width-input-radio--checked: unit( ( 6 / @font-size-browser / @font-size-base-value ), @wvui-unit );
 
+@box-shadow-input-binary: 0 0 0 1px rgba( 0, 0, 0, 0.1 );
 @box-shadow-input-binary--focus: inset 0 0 0 1px @color-primary--focus;
 @box-shadow-input-checkbox--focus-checked: @box-shadow-primary--focus;
 @box-shadow-input-binary--active: inset 0 0 0 1px @color-primary--active;
+
+// Toggle switch.
+@size-toggle-switch-width: 3.5em;
+@size-toggle-switch-height: 2em;
+@size-toggle-switch-grip--mobile: 1.25em;
+@start-toggle-switch-grip: unit( ( 5 / @font-size-browser / @font-size-base-value ), @wvui-unit );
+@start-toggle-switch-grip--mobile: unit( ( 4.5 / @font-size-browser / @font-size-base-value ), @wvui-unit );
+@min-height-toggle-switch: 26px;
+@min-size-toggle-switch-grip: 16px;
+@padding-right-toggle-switch-text: 16px;
+@border-radius-toggle-switch: @size-base--small;
+@border-color-framed-progressive--hover: @color-primary--hover;
+@border-filled--disabled: @border-width-base @border-style-base @border-color-filled--disabled;
+
+// Mixins.
+// Support Webkit/Blink: Force element on own GPU composite layer
+// Can be used in order to help establish smooth, jank-free scrolling in
+// connection with CSS animations or tame `opacity` bug. Use sparely & wisely!
+// See T154460 & T182257.
+.force-gpu-composite-layer() {
+	-webkit-transform: translateZ( 0 );
+	transform: translateZ( 0 );
+}

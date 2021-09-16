@@ -18,7 +18,8 @@
 		"<rootDir>/src/**/*.(ts|vue)",
 		"!<rootDir>/src/**/*.(d|test|snap|stories).ts",
 		"!<rootDir>/src/entries/**/*.ts",
-		"!<rootDir>/src/utils/StoryUtils.ts"
+		"!<rootDir>/src/utils/StoryUtils.ts",
+		"!<rootDir>/src/composables/**/*.ts"
 	],
 	"coverageDirectory": "<rootDir>/docs/coverage",
 	"errorOnDeprecated": true,

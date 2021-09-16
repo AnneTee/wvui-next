@@ -32,7 +32,8 @@ module.exports = {
 					text: 'Components',
 					children: [
 						{ text: 'Button', link: '/components/button' },
-						{ text: 'Radio', link: '/components/radio' }
+						{ text: 'Radio', link: '/components/radio' },
+						{ text: 'ToggleSwitch', link: '/components/toggle-switch' }
 					]
 				}
 			]
