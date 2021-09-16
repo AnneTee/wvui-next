@@ -49,9 +49,14 @@ export default defineComponent( {
 	&__demo {
 		border: @border-width-base @border-style-base @wmui-color-base70;
 		border-radius: @border-radius-base;
-		font-size: @font-size-base;
 		padding: 24px;
 		position: relative;
+
+		// Similar to our wikis, font size should be 1em on mobile and 0.875em
+		// on larger screens.
+		@media screen and ( min-width: @width-breakpoint-tablet ) {
+			font-size: @font-size-base;
+		}
 
 		&__button {
 			position: absolute;
