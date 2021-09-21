@@ -14,15 +14,21 @@ module.exports = {
 					text: 'Introduction',
 					children: [
 						{ text: 'About', link: '/' },
-						{ text: 'Getting started', link: '/introduction/getting-started' },
-						{ text: 'Library guiding principles', link: '/introduction/guiding-principles' }
+						{ text: 'Getting started', link: '/introduction/getting-started' }
 					]
 				},
 				{
 					text: 'Contributing',
 					children: [
-						{ text: 'Guidelines', link: '/contributing/contributing-guidelines' },
-						{ text: 'For developers', link: '/contributing/for-developers' }
+						{ text: 'Guidelines', link: '/contributing/guidelines' },
+						{ text: 'Contribution workflows', link: '/contributing/contribution-workflows' },
+						{ text: 'Contributing code', link: '/contributing/contributing-code' }
+					]
+				},
+				{
+					text: 'For developers',
+					children: [
+						{ text: 'Developing', link: '/for-developers/developing' }
 					]
 				},
 				{

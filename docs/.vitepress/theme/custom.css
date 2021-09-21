@@ -13,6 +13,10 @@ h1 {
 	font-weight: 400;
 }
 
+h4 {
+    margin-top: 1.15rem;
+}
+
 /* These should probably use vars from Wikimedia UI Base. */
 .custom-block.info {
     border-color: #a2a9b1;

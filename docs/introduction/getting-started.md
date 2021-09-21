@@ -1,8 +1,8 @@
 # Getting Started
 
-## Usage
+**These are just the old guidelines from WVUI.**
 
-### Installation and version history
+## Installation and version history
 
 Install the library and Vue.js v2:
 
@@ -36,7 +36,7 @@ We recommend pinning WVUI to an exact patch version. For example:
 > specifies dependencies with looser versioning instead, that project will be at the mercy of its
 > dependencies instead of in control of them.
 
-### Integration
+## Integration
 
 The following example demonstrates an integration with the Vue root App that has access to the
 entire WVUI component library and styles:
@@ -70,7 +70,7 @@ new Vue({
 });
 ```
 
-### Different builds
+## Different builds
 
 There is currently one bundle available:
 
@@ -87,14 +87,3 @@ Each chunk is side-effect free. All chunks are fully compiled ES5 / CSS and requ
 runtime. See peerDependencies.
 
 See the performance section for related topics.
-
-## Development
-
-### Quick start
-
-Get running on your host machine quickly with:
-
-```bash
-npm install
-npm start
-```

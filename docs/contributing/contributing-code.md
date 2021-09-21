@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Contributing guidelines
 
 **Note that these are the old guidelines from WVUI.**
@@ -76,23 +80,3 @@ help us keep our documentation and tests complete and up-to-date.
     inherently bad. It's ok to downvote to request improved documentation or clarification but not
     for an education in industry standard practice. You are responsible in part for creating the
     culture you want.
-
-### Task tracking
-
-To stay informed about parts of the work you might want to review or follow, you are encouraged to
-subscribe to the corresponding Phabricator tasks so you will be alerted when the task changes
-columns or has an associated patch opened.
-
-## How to stay up-to-date
-
-To keep all those interested in using or contributing to the library up-to-date on topics of design,
-development, roadmaps, and releases, the Vue Migration Team will:
-
--   Include release notes with every release and send minor+ release summaries out to the following
-    mailing lists:
-    -   [wikitech-l](https://lists.wikimedia.org/postorius/lists/wikitech-l.lists.wikimedia.org/)
-    -   [design.public](https://lists.wikimedia.org/postorius/lists/design.lists.wikimedia.org/)
--   Use the [WVUI workboard](https://phabricator.wikimedia.org/project/view/4898/) in Phabricator to
-    publicly track the work, giving others the opportunity to subscribe to tasks, add comments, or
-    claim tasks.
--   Fill out the Scrum of Scrums notes that go out to wikitech-l weekly.

@@ -9,75 +9,54 @@ technologies.
 This component library works in tandem with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html), which documents all of our
 design standards and decisions.
 
-## Important links
+## Guiding principles
 
-- [MediaWiki's Vue docs](https://www.mediawiki.org/wiki/Vue.js)
-- [Learn about the Wikimedia Design Systems Team](https://www.mediawiki.org/wiki/Design_Systems_Team)
-- [Our Phabricator board](https://phabricator.wikimedia.org/project/view/5183/)
+### Who we're serving
 
-## About VitePress
+#### Prioritize end-user developer experience
 
-Here's some of the stuff you can do in markdown:
+We want the library to make building user interfaces straightforward and fast. We aim to serve users of varying levels of experience and to stick to existing patterns as much as possible so the library to facilitate developer onboarding.
 
-### Table of contents
+#### Accessibility and internationalization
 
-You can put as many heading levels as you want in the sidebar, and you can also
-add a table of contents to the page with a single line of markdown (and it's
-configurable).
+Wikimedia intends to serve every human being, eventually. We will follow [Wikimedia's accessibility principles](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) and aim to support many languages.
 
-[[toc]]
+#### Designed and built for the wider MediaWiki ecosystem
 
-### Vue in markdown
+We intend to serve developers working both within MediaWiki (core, skins, and extensions) and in the larger ecosystem, including web-based tools, static web applications, Jamstack applications, and some of our mobile apps. Platform-agnosticism will enable us to use this library as we continue expanding this ecosystem.
 
-You can use any Vue features within markdown files. See components for examples.
+To keep our code as flexible as possible, we will aim to avoid entirely MediaWiki-specific components. When they can't be avoided, we will clearly label them as such and abstract out as much of the MediaWiki-specific code as possible in order to sequester it and aim to make it optional or configurable.
 
-### Importing code snippets
+Components should be thoughtfully designed and developed to work across device widths
 
-You can import code and display it, which is be useful for avoiding redundant
-code blocks when both displaying a component and showing the code.
+### Collaboration principles
 
-### Code blocks with line highlighting
+#### Transparency
 
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
+We work in the open and aim to provide consumers as much information as possible about what we're working on and how we're prioritizing that work.
 
-### Styled messages
+#### Enable rather than enforce
 
-These come with VitePress (and are using our color palette). You can also use
-Vue components in markdown, so we could use our own Message Vue component once
-it exists.
+The library maintainers welcome contributions from others and wish to collaboratively build resources to enable others to easily contribute to the library.
 
-::: tip
-This is a tip
-:::
+#### Knowledge sharing rather than knowledge silos
 
-::: info
-This is an info box
-:::
+Contributors should have support and access to resources that allow them to understand and influence the system's workflows, methodologies, standards, and infrastructure.
 
-::: warning
-This is a warning
-:::
+### Code design patterns
 
-::: danger
-This is a dangerous warning
-:::
+#### Composition over complexity
 
-### GitHub-style tables
+Smaller components are easier to understand and more reusable.
+    
+#### Clarity over brevity
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+It's better for code to be easily understandable than to be as short or as clever as possible.
 
-### Emoji
+#### Use existing patterns
 
-Totally necessary :joy_cat: :skull:
+Sticking to patterns established in the greater front-end community enables more people to contribute. Following consistent patterns within the library makes the code easier to write, review, and maintain.
+
+#### Keep the template simple
+
+The template within single file Vue components can be a tool to clearly illustrate what a component is and does. Consider moving everything but the most basic JavaScript code to the script tag.
