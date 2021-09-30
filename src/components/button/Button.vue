@@ -1,4 +1,7 @@
 <template>
+	<!-- @NOTE: Click event handler has TypeSCript error: Type
+	((event: Event) => any) & ((event: Event) => void)' is not assignable to type
+	'MouseEventHandler<HTMLButtonElement> | undefined'.-->
 	<button
 		class="wvui-button"
 		:class="rootClasses"
@@ -8,45 +11,56 @@
 	</button>
 </template>
 
-<script lang="ts">
-import { PrimaryAction, isPrimaryAction } from '../../actions/PrimaryAction';
-import { defineComponent, PropType } from 'vue';
+<!-- eslint-disable-next-line vue/no-unsupported-features -->
+<script setup lang="ts">
+// @STANDARD: import stuff from Vue first.
+import { reactive } from 'vue';
+import { PrimaryAction } from '../../actions/PrimaryAction';
 
+// @STANDARD: component doc block.
 /**
  * A button wrapping slotted content.
  */
-export default defineComponent( {
-	name: 'WvuiButton',
-	props: {
-		/** See PrimaryAction. */
-		action: {
-			type: String as PropType<PrimaryAction>,
-			default: PrimaryAction.Default,
-			validator: isPrimaryAction
-		},
-		/** True if button should be visually less prominent. */
-		quiet: Boolean
-	},
-	emits: [
-		'click'
-	],
-	computed: {
-		rootClasses(): Record<string, boolean> {
-			return {
-				'wvui-button--default': this.action === PrimaryAction.Default,
-				'wvui-button--progressive': this.action === PrimaryAction.Progressive,
-				'wvui-button--destructive': this.action === PrimaryAction.Destructive,
-				'wvui-button--framed': !this.quiet,
-				'wvui-button--quiet': this.quiet
-			};
-		}
-	},
-	methods: {
-		onClick( event: Event ): void {
-			this.$emit( 'click', event );
-		}
-	}
+
+// @STANDARD: First props, then emits
+interface Props {
+	// See PrimaryAction.
+	action?: PrimaryAction,
+	// True if button should be less visually prominent.
+	quiet?: boolean
+}
+
+const props = withDefaults( defineProps<Props>(), {
+	// See PrimaryAction.
+	action: PrimaryAction.Default,
+	// @NOTE: current eslint config doesn't like this, but a default seems to be required.
+	// True if button should be less visually prominent.
+	quiet: false
 } );
+
+// @NOTE: eslint is mad about spacing here.
+const emit = defineEmits<{
+	( e: 'click', event: Event ): void
+}>();
+
+// @STANDARD: Grab props or context if needed. This way, it's easier to add more props
+// or grab more items from context in the future.
+const { action, quiet } = props;
+
+// @STANDARD: From here, group stuff by purpose/function. Comments are helpful
+// for anything nonstandard (standard stuff includes rootClasses and simple
+// methods whose names explain what they do sufficiently enough).
+const rootClasses = reactive( {
+	'wvui-button--default': action === PrimaryAction.Default,
+	'wvui-button--progressive': action === PrimaryAction.Progressive,
+	'wvui-button--destructive': action === PrimaryAction.Destructive,
+	'wvui-button--framed': !quiet,
+	'wvui-button--quiet': quiet
+} );
+
+function onClick( event: Event ): void {
+	emit( 'click', event );
+}
 </script>
 
 <style lang="less">
