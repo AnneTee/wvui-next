@@ -2,9 +2,7 @@
 sidebarDepth: 3
 ---
 
-# Button
-
-A button wrapping slotted content.
+# on
 
 <a href="https://github.com/annetee/wvui-next/edit/main/docs/src/components/button/Button.md" class="docgen-edit-link"></a>
 
@@ -143,19 +141,6 @@ import WvuiButton from '../../src/components/button/Button.vue';
 </Wrapper>
 
 ## Usage
-
-### Props
-
-| Prop name | Description                                       | Type          | Values | Default               |
-| --------- | ------------------------------------------------- | ------------- | ------ | --------------------- |
-| action    | See PrimaryAction.                                | PrimaryAction | -      | PrimaryAction.Default |
-| quiet     | True if button should be visually less prominent. | boolean       | -      |                       |
-
-### Events
-
-| Event name | Properties | Description |
-| ---------- | ---------- | ----------- |
-| click      |            |
 
 ### Slots
 
