@@ -22,17 +22,9 @@ module.exports = {
 					children: [
 						{ text: 'Guidelines', link: '/contributing/guidelines' },
 						{ text: 'Contribution workflows', link: '/contributing/contribution-workflows' },
-						{ text: 'Contributing code', link: '/contributing/contributing-code' }
+						{ text: 'Contributing code', link: '/contributing/contributing-code' },
+						{ text: 'For developers', link: '/contributing/developing' }
 					]
-				},
-				{
-					text: 'For developers',
-					children: [
-						{ text: 'Developing', link: '/for-developers/developing' }
-					]
-				},
-				{
-					text: 'Design Tokens'
 				},
 				{
 					text: 'Components',
