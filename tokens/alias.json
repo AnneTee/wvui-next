@@ -1,0 +1,121 @@
+{
+    "border": {
+        "style": {
+            "base": {
+                "value": "solid"
+            }
+        },
+        "width": {
+            "thin": {
+                "value": "1px"
+            },
+            "thick": {
+                "value": "2px"
+            }
+        },
+        "radius": {
+            "none": {
+                "value": "0px"
+            },
+            "base": {
+                "value": "2px"
+            },
+            "rounder": {
+                "value": "4px"
+            },
+            "circle": {
+                "value": "8px"
+            }
+        },
+        "color": {
+            "base": {
+                "default": {
+                    "value": "#a2a9b1"
+                },
+                "binary": {
+                    "value": "#72777d"
+                },
+                "subtle": {
+                    "value": "#c8ccd1"
+                },
+                "hover": {
+                    "value": "#72777d"
+                },
+                "focus": {
+                    "value": "#a2a9b1"
+                },
+                "transparent": {
+                    "value": "transparent"
+                },
+                "disabled": {
+                    "value": "#c8ccd1"
+                }
+            },
+            "progressive": {
+                "default": {
+                    "value": "#36c"
+                },
+                "hover": {
+                    "value": "#447ff5"
+                },
+                "quiet-hover": {
+                    "value": "#eaf3ff"
+                },
+                "active": {
+                    "value": "#2a4b8d"
+                },
+                "focus": {
+                    "value": "#36c"
+                }
+            },
+            "neutral": {
+                "default": {
+                    "value": "#a2a9b1"
+                },
+                "hover": {
+                    "value": "#a2a9b1"
+                },
+                "quiet-hover": {
+                    "value": "#f8f9fa"
+                },
+                "active": {
+                    "value": "#72777d"
+                },
+                "focus": {
+                    "value": "#a2a9b1"
+                }
+            },
+            "destructive": {
+                "default": {
+                    "value": "#d33"
+                },
+                "hover": {
+                    "value": "#ff4242"
+                },
+                "quiet-hover": {
+                    "value": "#fee7e6"
+                },
+                "active": {
+                    "value": "#b32424"
+                },
+                "focus": {
+                    "value": "#d33"
+                }
+            },
+            "feedback": {
+                "notice": {
+                    "value": "#c8ccd1"
+                },
+                "error": {
+                    "value": "#d33"
+                },
+                "warning": {
+                    "value": "#fc3"
+                },
+                "success": {
+                    "value": "#00af89"
+                }
+            }
+        }
+    }
+}

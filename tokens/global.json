@@ -1,0 +1,209 @@
+{
+    "color": {
+        "base": {
+            "0": {
+                "value": "#000"
+            },
+            "10": {
+                "value": "#202122"
+            },
+            "20": {
+                "value": "#54595d"
+            },
+            "30": {
+                "value": "#72777d"
+            },
+            "50": {
+                "value": "#a2a9b1"
+            },
+            "70": {
+                "value": "#c8ccd1"
+            },
+            "80": {
+                "value": "#eaecf0"
+            },
+            "90": {
+                "value": "#f8f9fa"
+            },
+            "100": {
+                "value": "#fff"
+            }
+        },
+        "accent": {
+            "30": {
+                "value": "#2a4b8d"
+            },
+            "50": {
+                "value": "#36c"
+            },
+            "90": {
+                "value": "#eaf3ff"
+            }
+        },
+        "utility": {
+            "red": {
+                "30": {
+                    "value": "#b32424"
+                },
+                "50": {
+                    "value": "#d33"
+                },
+                "90": {
+                    "value": "#fee7e6"
+                }
+            },
+            "yellow": {
+                "30": {
+                    "value": "ac6600"
+                },
+                "50": {
+                    "value": "fc3"
+                },
+                "90": {
+                    "value": "fef6e7"
+                }
+            },
+            "green": {
+                "30": {
+                    "value": "#14866d"
+                },
+                "50": {
+                    "value": "#00af89"
+                },
+                "90": {
+                    "value": "#d5fdf4"
+                }
+            }
+        },
+        "modifier": {
+            "lighten": {
+                "base-10": {
+                    "value": "#404244"
+                },
+                "base-20": {
+                    "value": "#6c7378"
+                },
+                "accent-50": {
+                    "value": "#447ff5"
+                },
+                "utility-red-50": {
+                    "value": "#ff4242"
+                }
+            },
+            "purple": {
+                "value": "#6b4ba1"
+            }
+        },
+        "transparent": {
+            "value": "transparent"
+        }
+    },
+    "dimension": {
+        "dynamic": {
+            "size": {
+                "0": {
+                    "value": "0em"
+                },
+                "12": {
+                    "value": "0.125em"
+                },
+                "25": {
+                    "value": "0.250em"
+                },
+                "30": {
+                    "value": "0.313em"
+                },
+                "50": {
+                    "value": "0.500em"
+                },
+                "56": {
+                    "value": "0.563em"
+                },
+                "75": {
+                    "value": "0.750em"
+                },
+                "87": {
+                    "value": "0.875em"
+                },
+                "100": {
+                    "value": "1em"
+                },
+                "125": {
+                    "value": "1.250em"
+                },
+                "150": {
+                    "value": "1.500em"
+                },
+                "200": {
+                    "value": "2em"
+                },
+                "250": {
+                    "value": "2.500em"
+                }
+            },
+            "percentage": {
+                "50": {
+                    "value": "50%"
+                },
+                "100": {
+                    "value": "100%"
+                },
+                "200": {
+                    "value": "200%"
+                }
+            }
+        },
+        "static": {
+            "size": {
+                "0": {
+                    "value": "0px"
+                },
+                "10": {
+                    "value": "1px"
+                },
+                "25": {
+                    "value": "2px"
+                },
+                "50": {
+                    "value": "4px"
+                },
+                "100": {
+                    "value": "8px"
+                },
+                "150": {
+                    "value": "12px"
+                },
+                "175": {
+                    "value": "14px"
+                },
+                "200": {
+                    "value": "16px"
+                },
+                "250": {
+                    "value": "20px"
+                },
+                "300": {
+                    "value": "24px"
+                },
+                "400": {
+                    "value": "32px"
+                },
+                "500": {
+                    "value": "40px"
+                },
+                "1600": {
+                    "value": "128px"
+                },
+                "3200": {
+                    "value": "256px"
+                },
+                "4800": {
+                    "value": "384px"
+                },
+                "6400": {
+                    "value": "512px"
+                }
+            }
+        }
+    }
+}

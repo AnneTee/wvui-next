@@ -23,7 +23,15 @@ module.exports = {
 						{ text: 'Guidelines', link: '/contributing/guidelines' },
 						{ text: 'Contribution workflows', link: '/contributing/contribution-workflows' },
 						{ text: 'Contributing code', link: '/contributing/contributing-code' },
-						{ text: 'For developers', link: '/contributing/developing' }
+						{ text: 'Developing', link: '/contributing/developing' }
+					]
+				},
+				{
+					text: 'Design Tokens',
+					children: [
+						{ text: 'Introduction', link: '/design-tokens/introduction' },
+						{ text: 'Colors', link: '/design-tokens/colors' },
+						{ text: 'Borders', link: '/design-tokens/borders' }
 					]
 				},
 				{

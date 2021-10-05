@@ -2,7 +2,7 @@
 sidebarDepth: 3
 ---
 
-# Contributing guidelines
+# Contributing code
 
 **Note that these are the old guidelines from WVUI.**
 

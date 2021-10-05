@@ -1,5 +1,5 @@
 const path = require( 'path' );
-const componentTemplate = require( './docs/templates/component' );
+const componentTemplate = require( './docs/utils/templates/component' );
 
 /** @type import("vue-docgen-cli").DocgenCLIConfig */
 module.exports = {
