@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme';
-import Wrapper from '../../utils/Wrapper.vue';
+import Wrapper from './../../utils/Wrapper.vue';
 
 import './custom.css';
 

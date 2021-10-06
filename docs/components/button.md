@@ -46,97 +46,33 @@ import WvuiButton from '../../src/components/button/Button.vue';
 </template>
 </Wrapper>
 
-### Destructive
+### Progressive, primary
 
 <Wrapper>
 <template v-slot:demo>
-<WvuiButton action="destructive">Click me</WvuiButton>
+<WvuiButton action="destructive" type="primary">Click me</WvuiButton>
 </template>
 
 <template v-slot:code>
 
 ```vue
-<WvuiButton action="destructive">Click me</WvuiButton>
+<WvuiButton action="destructive" type="primary">Click me</WvuiButton>
 ```
 
 </template>
 </Wrapper>
 
-### Default, quiet
+### Progressive, primary, disabled
 
 <Wrapper>
 <template v-slot:demo>
-<WvuiButton :quiet="true">Click me</WvuiButton>
+<WvuiButton action="progressive" type="primary" disabled>Click me</WvuiButton>
 </template>
 
 <template v-slot:code>
 
 ```vue
-<WvuiButton :quiet="true">Click me</WvuiButton>
-```
-
-</template>
-</Wrapper>
-
-### Progressive, quiet
-
-<Wrapper>
-<template v-slot:demo>
-<WvuiButton action="progressive" :quiet="true">Click me</WvuiButton>
-</template>
-
-<template v-slot:code>
-
-```vue
-<WvuiButton action="progressive" :quiet="true">Click me</WvuiButton>
-```
-
-</template>
-</Wrapper>
-
-### Destructive, quiet
-
-<Wrapper>
-<template v-slot:demo>
-<WvuiButton action="destructive" :quiet="true">Click me</WvuiButton>
-</template>
-
-<template v-slot:code>
-
-```vue
-<WvuiButton action="destructive" :quiet="true">Click me</WvuiButton>
-```
-
-</template>
-</Wrapper>
-
-### Disabled
-
-<Wrapper>
-<template v-slot:demo>
-<WvuiButton disabled>Click me</WvuiButton>
-</template>
-
-<template v-slot:code>
-
-```vue
-<WvuiButton disabled>Click me</WvuiButton>
-```
-
-</template>
-</Wrapper>
-
-### Disabled, quiet
-
-<Wrapper>
-<template v-slot:demo>
-<WvuiButton :quiet="true" disabled>Click me</WvuiButton>
-</template>
-
-<template v-slot:code>
-
-```vue
-<WvuiButton :quiet="true" disabled>Click me</WvuiButton>
+<WvuiButton action="progressive" type="primary" disabled>Click me</WvuiButton>
 ```
 
 </template>
@@ -146,10 +82,10 @@ import WvuiButton from '../../src/components/button/Button.vue';
 
 ### Props
 
-| Prop name | Description                                       | Type          | Values | Default               |
-| --------- | ------------------------------------------------- | ------------- | ------ | --------------------- |
-| action    | See PrimaryAction.                                | PrimaryAction | -      | PrimaryAction.Default |
-| quiet     | True if button should be visually less prominent. | boolean       | -      |                       |
+| Prop name | Description                                            | Type         | Values | Default              |
+| --------- | ------------------------------------------------------ | ------------ | ------ | -------------------- |
+| action    |                                                        | ButtonAction | -      | ButtonAction.Default |
+| type      | Button type. See ButtonType for what each value means. | ButtonType   | -      | ButtonType.Normal    |
 
 ### Events
 
@@ -159,6 +95,6 @@ import WvuiButton from '../../src/components/button/Button.vue';
 
 ### Slots
 
-| Name    | Description | Bindings |
-| ------- | ----------- | -------- |
-| default |             |          |
+| Name    | Description    | Bindings |
+| ------- | -------------- | -------- |
+| default | Button content |          |

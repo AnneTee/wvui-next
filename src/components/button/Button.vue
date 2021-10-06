@@ -4,13 +4,17 @@
 		:class="rootClasses"
 		@click="onClick"
 	>
+		<!--
+			@slot Button content
+		-->
 		<slot />
 	</button>
 </template>
 
 <script lang="ts">
-import { PrimaryAction, isPrimaryAction } from '../../actions/PrimaryAction';
 import { defineComponent, PropType } from 'vue';
+import { ButtonType, isButtonType } from './ButtonType';
+import { ButtonAction, isButtonAction } from './ButtonAction';
 
 /**
  * A button wrapping slotted content.
@@ -18,14 +22,21 @@ import { defineComponent, PropType } from 'vue';
 export default defineComponent( {
 	name: 'WvuiButton',
 	props: {
-		/** See PrimaryAction. */
 		action: {
-			type: String as PropType<PrimaryAction>,
-			default: PrimaryAction.Default,
-			validator: isPrimaryAction
+			type: String as PropType<ButtonAction>,
+			default: ButtonAction.Default,
+			// use arrow function for type inference of property
+			validator: ( value ) => isButtonAction( value )
 		},
-		/** True if button should be visually less prominent. */
-		quiet: Boolean
+		/**
+		 * Button type. See ButtonType for what each value means.
+		 */
+		type: {
+			type: String as PropType<ButtonType>,
+			default: ButtonType.Normal,
+			// use arrow function for type inference of property
+			validator: ( value ) => isButtonType( value )
+		}
 	},
 	emits: [
 		'click'
@@ -33,11 +44,13 @@ export default defineComponent( {
 	computed: {
 		rootClasses(): Record<string, boolean> {
 			return {
-				'wvui-button--default': this.action === PrimaryAction.Default,
-				'wvui-button--progressive': this.action === PrimaryAction.Progressive,
-				'wvui-button--destructive': this.action === PrimaryAction.Destructive,
-				'wvui-button--framed': !this.quiet,
-				'wvui-button--quiet': this.quiet
+				'wvui-button--action-default': this.action === ButtonAction.Default,
+				'wvui-button--action-progressive': this.action === ButtonAction.Progressive,
+				'wvui-button--action-destructive': this.action === ButtonAction.Destructive,
+				'wvui-button--type-primary': this.type === ButtonType.Primary,
+				'wvui-button--type-normal': this.type === ButtonType.Normal,
+				'wvui-button--type-quiet': this.type === ButtonType.Quiet,
+				'wvui-button--framed': this.type !== ButtonType.Quiet
 			};
 		}
 	},
@@ -58,13 +71,15 @@ export default defineComponent( {
 	min-width: @min-size-base;
 	min-height: @min-size-base;
 	max-width: @max-width-button;
+	// Support Firefox, Safari: Normalize by removing the `margin`.
+	margin: 0;
 	border-width: @border-width-base;
 	border-style: @border-style-base;
 	border-radius: @border-radius-base;
-	// Support Firefox, Safari: Normalize by removing the `margin`.
-	margin: 0;
-	padding-left: @padding-horizontal-base;
 	padding-right: @padding-horizontal-base;
+	padding-left: @padding-horizontal-base;
+	// Support IE 11: Normalize by showing `overflow`.
+	overflow: visible;
 	// Support all browsers: Normalize by inheriting `font-family`.
 	// Initial value depends on user-agent.
 	font-family: inherit;
@@ -75,9 +90,8 @@ export default defineComponent( {
 	text-transform: none;
 	// Contents are single line.
 	white-space: nowrap;
-	// Support IE 11: Normalize by showing `overflow`.
-	overflow: visible;
-	transition: border-color @transition-base, background-color @transition-base, color @transition-base, box-shadow @transition-base;
+	transition-property: border-color, background-color, color, box-shadow;
+	transition-duration: @transition-base;
 
 	// Support Firefox: Normalize by hiding the inner focus `border` and `padding`.
 	&::-moz-focus-inner {
@@ -97,8 +111,8 @@ export default defineComponent( {
 		cursor: pointer;
 
 		&:focus {
-			box-shadow: @box-shadow-base--focus;
 			border-color: @color-primary--focus;
+			box-shadow: @box-shadow-base--focus;
 			// In Windows high contrast mode the outline becomes visible.
 			outline: @outline-base--focus;
 		}
@@ -113,9 +127,16 @@ export default defineComponent( {
 	&[ disabled ] {
 		border-color: transparent;
 	}
+
+	.wvui-icon {
+		// Any icons used in the button content should have the color of the surrounding text
+		// This overrides the color rule in Icon.vue, and ensures that the rules below changing the
+		// text color for progressive and destructive buttons also apply to icons.
+		color: inherit;
+	}
 }
 
-// Normal “framed” buttons.
+// Non-quiet “framed” buttons (normal and primary types)
 .wvui-button--framed {
 	&:not( [ disabled ] ) {
 		background-color: @background-color-framed;
@@ -133,8 +154,67 @@ export default defineComponent( {
 		}
 	}
 
-	// Progressive normal buttons.
-	&.wvui-button--progressive:not( [ disabled ] ) {
+	&[ disabled ] {
+		background-color: @background-color-filled--disabled;
+		color: @color-filled--disabled;
+	}
+}
+
+.wvui-button--type-primary {
+	// Progressive primary buttons
+	&.wvui-button--action-progressive:not( [ disabled ] ) {
+		background-color: @color-primary;
+		color: @color-base--inverted;
+		border-color: @color-primary;
+
+		&:hover {
+			background-color: @color-primary--hover;
+			border-color: @color-primary--hover;
+		}
+
+		&:focus {
+			background-color: @color-primary--focus;
+			border-color: @color-primary--focus;
+			box-shadow: @box-shadow-primary--focus;
+		}
+
+		&:active {
+			background-color: @color-primary--active;
+			border-color: @color-primary--active;
+			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
+			box-shadow: none;
+		}
+	}
+
+	// Destructive primary buttons
+	&.wvui-button--action-destructive:not( [ disabled ] ) {
+		background-color: @color-destructive;
+		color: @color-base--inverted;
+		border-color: @color-destructive;
+
+		&:hover {
+			background-color: @color-destructive--hover;
+			border-color: @color-destructive--hover;
+		}
+
+		&:focus {
+			background-color: @color-destructive--focus;
+			border-color: @color-destructive--focus;
+			box-shadow: @box-shadow-destructive--focus;
+		}
+
+		&:active {
+			background-color: @color-destructive--active;
+			border-color: @color-destructive--active;
+			// Reset `:focus` box shadow to amplify 'interaction' feeling when pressed.
+			box-shadow: none;
+		}
+	}
+}
+
+.wvui-button--type-normal {
+	// Normal progressive buttons
+	&.wvui-button--action-progressive:not( [ disabled ] ) {
 		color: @color-primary;
 
 		&:hover {
@@ -157,8 +237,8 @@ export default defineComponent( {
 		}
 	}
 
-	// Destructive normal buttons.
-	&.wvui-button--destructive:not( [ disabled ] ) {
+	// Normal destructive buttons
+	&.wvui-button--action-destructive:not( [ disabled ] ) {
 		color: @color-destructive;
 
 		&:hover {
@@ -180,23 +260,16 @@ export default defineComponent( {
 			box-shadow: none;
 		}
 	}
-
-	&[ disabled ] {
-		background-color: @background-color-filled--disabled;
-		color: @color-filled--disabled;
-	}
 }
 
 // Quiet buttons.
-.wvui-button--quiet {
+.wvui-button--type-quiet {
 	background-color: transparent;
-	color: @color-base;
 	border-color: transparent;
 
 	&:not( [ disabled ] ) {
 		&:hover {
 			background-color: @background-color-quiet--hover;
-			color: @color-quiet--hover;
 		}
 
 		&:focus {
@@ -212,10 +285,12 @@ export default defineComponent( {
 	}
 
 	// Progressive quiet buttons.
-	&.wvui-button--progressive:not( [ disabled ] ) {
+	&.wvui-button--action-progressive:not( [ disabled ] ) {
 		color: @color-primary;
 
 		&:hover {
+			// FIXME @background-color-primary--hover exists but is a little lighter
+			background-color: fade( #347bff, 20% );
 			color: @color-primary--hover;
 		}
 
@@ -226,16 +301,20 @@ export default defineComponent( {
 		}
 
 		&:active {
-			color: @color-primary--active;
+			background-color: @color-primary--active;
+			color: @color-base--inverted;
+			border-color: @color-primary--active;
 			box-shadow: none;
 		}
 	}
 
 	// Destructive quiet buttons.
-	&.wvui-button--destructive:not( [ disabled ] ) {
+	&.wvui-button--action-destructive:not( [ disabled ] ) {
 		color: @color-destructive;
 
 		&:hover {
+			// FIXME @background-color-destructive--hover should exist but doesn't
+			background-color: fade( #d11d13, 20% );
 			color: @color-destructive--hover;
 		}
 
@@ -246,7 +325,9 @@ export default defineComponent( {
 		}
 
 		&:active {
-			color: @color-destructive--active;
+			background-color: @color-destructive--active;
+			color: @color-base--inverted;
+			border-color: @color-destructive--active;
 			box-shadow: none;
 		}
 	}
