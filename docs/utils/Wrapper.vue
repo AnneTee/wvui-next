@@ -1,8 +1,13 @@
 <template>
 	<div class="vp-wrapper">
 		<div class="vp-wrapper__demo">
-			<slot name="demo" />
+			<slot
+				name="demo"
+				:props-values="propsValues"
+				:slots-values="slotsValues"
+			/>
 			<wvui-button
+				v-if="hasCode"
 				class="vp-wrapper__demo__button"
 				:quiet="true"
 				@click="onClick"
@@ -10,20 +15,81 @@
 				{{ buttonLabel }}
 			</wvui-button>
 		</div>
-		<div v-show="showCode" class="vp-wrapper__code">
+		<div
+			v-if="hasCode"
+			v-show="showCode"
+			class="vp-wrapper__code"
+		>
 			<slot name="code" />
+		</div>
+		<div v-if="hasControls" class="vp-wrapper__controls">
+			<Controls
+				:props-config="propsConfig"
+				:props-values="propsValues"
+				:slots-config="slotsConfig"
+				:slots-values="slotsValues"
+				@control-change="handleControlChange"
+			/>
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, reactive, toRef, ref, computed } from 'vue';
+import Controls from './Controls.vue';
 import WvuiButton from '../../src/components/button/Button.vue';
 
+interface Config {
+	[key: string]: ConfigItem
+}
+
+// TODO: consider expanding to allow options other than strings
+interface ConfigItem {
+	type?: string,
+	options?: Array<string>,
+	default?: string
+}
+
+interface eventData {
+	name: string,
+	value: string,
+	type: string
+}
+
+/**
+ * Wrapper for component demos.
+ *
+ * Includes:
+ *  - Formatting for the demo itself
+ *  - Show/hide code button and functionality
+ *  - Optional controls for configurable demos
+ */
 export default defineComponent( {
 	name: 'Wrapper',
-	components: { WvuiButton },
-	setup() {
+	components: { Controls, WvuiButton },
+	props: {
+		/**
+		 * Data for configurable props.
+		 */
+		propsConfig: {
+			type: Object,
+			default: () => {
+				return {};
+			}
+		},
+		/**
+		 * Data for configurable slots.
+		 */
+		slotsConfig: {
+			type: Object,
+			default: () => {
+				return {};
+			}
+		}
+	},
+	setup( props, { slots } ) {
+		// Set up show code/hide code button.
+		const hasCode = slots && slots.code;
 		const showCode = ref( false );
 		const buttonLabel = computed( () => {
 			return showCode.value === true ? 'Hide code' : 'Show code';
@@ -31,10 +97,52 @@ export default defineComponent( {
 		const onClick = (): void => {
 			showCode.value = !showCode.value;
 		};
+
+		// Set up controls if config is provided.
+		const propsConfig = toRef( props, 'propsConfig' );
+		const slotsConfig = toRef( props, 'slotsConfig' );
+		const hasControls = Object.keys( propsConfig.value ).length > 0 ||
+			Object.keys( slotsConfig.value ).length > 0;
+
+		/**
+		 * Set up an object containing control values set to defaults.
+		 *
+		 * @param config Props or slots config
+		 * @return Object of name + value pairs
+		 */
+		const getControlsValues = ( config: Config ): Record<string, string | undefined> => {
+			const result = {} as Record<string, string | undefined>;
+			Object.keys( config ).forEach( ( key ) => {
+				result[ key ] = config[ key ].default;
+			} );
+			return result;
+		};
+		const propsValues = reactive( getControlsValues( propsConfig.value ) );
+		const slotsValues = reactive( getControlsValues( slotsConfig.value ) );
+
+		/**
+		 * Store new control value so it can be passed back into the controls
+		 * and to the component via the demo slot.
+		 *
+		 * @param data Event data
+		 */
+		const handleControlChange = ( data: eventData ): void => {
+			if ( data.type === 'slot' ) {
+				( slotsValues as Record<string, string> )[ data.name ] = data.value;
+			} else {
+				( propsValues as Record<string, string> )[ data.name ] = data.value;
+			}
+		};
+
 		return {
+			hasCode,
 			showCode,
 			buttonLabel,
-			onClick
+			onClick,
+			hasControls,
+			propsValues,
+			slotsValues,
+			handleControlChange
 		};
 	}
 } );
