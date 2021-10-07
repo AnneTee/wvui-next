@@ -11,7 +11,7 @@ const propsConfig = {
 		type: 'radio',
 		options: [ 'normal', 'primary', 'quiet' ],
 		default: 'normal'
-	},
+	}
 };
 
 const slotsConfig = {
