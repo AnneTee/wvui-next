@@ -4,6 +4,29 @@ sidebarDepth: 3
 
 # Contributing code
 
+This section covers how to work on the library. If you want to contribute code,
+please review the [Contributing section](/contributing/guidelines) first to
+learn more about our contribution processes and patch requirements.
+
+**TODO: order of things: should docs about how to contribute (task tracking, patch requirements) go
+first? Quick start seems like a logical first thing, but the requirements for contributing are
+important**
+
+## Quick start
+
+Get running on your host machine quickly with:
+
+```bash
+npm install
+npm run styleguide
+```
+
+VitePress will start a hot-reloading development server at http://localhost:3000.
+
+## Lots more stuff
+
+To come later
+
 **Note that these are the old guidelines from WVUI.**
 
 We welcome contributions from everyone! WVUI is maintained by the Vue Migration Team of the
@@ -13,6 +36,8 @@ and discussion in Phabricator (our project management system), patch commits, an
 ## Author guidelines
 
 ### Task tracking
+
+**TODO: update for new library**
 
 -   Patch authors should track their work via a Phabricator task on the
     [WVUI workboard](https://phabricator.wikimedia.org/project/view/4898/). If there is not already
@@ -63,6 +88,8 @@ change code rather than going back and doing it after the fact. Being consistent
 help us keep our documentation and tests complete and up-to-date.
 
 ## Reviewer guidelines
+
+**TODO: generalize these and move them to the general contributing guidelines page**
 
 ### General guidelines
 

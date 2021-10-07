@@ -1,7 +1,7 @@
 module.exports = {
 	lang: 'en-US',
-	title: 'WVUI-next',
-	description: 'Playground for Vue 3 + Vite component library experiments',
+	title: 'Codex',
+	description: 'Toolkit for building user interfaces within the Wikimedia Design System',
 
 	themeConfig: {
 		repo: 'annetee/wvui-next',
@@ -21,9 +21,8 @@ module.exports = {
 					text: 'Contributing',
 					children: [
 						{ text: 'Guidelines', link: '/contributing/guidelines' },
-						{ text: 'Contribution workflows', link: '/contributing/contribution-workflows' },
+						{ text: 'Designing components', link: '/contributing/designing-components' },
 						{ text: 'Contributing code', link: '/contributing/contributing-code' },
-						{ text: 'Developing', link: '/contributing/developing' }
 					]
 				},
 				{
@@ -40,6 +39,12 @@ module.exports = {
 						{ text: 'Button', link: '/components/button' },
 						{ text: 'Radio', link: '/components/radio' },
 						{ text: 'ToggleSwitch', link: '/components/toggle-switch' }
+					]
+				},
+				{
+					text: 'ADRs',
+					children: [
+						{ text: 'Example', link: '/adrs/example' },
 					]
 				}
 			]

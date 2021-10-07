@@ -1,13 +1,30 @@
+---
+sidebarDepth: 3
+---
+
 # About
 
-WVUI-next is a re-scaffolding of https://github.com/wikimedia/wvui using Vue 3
-and Vite. Right now, it's just a playground for experimenting with new
-technologies.
+Codex is a toolkit for building user interfaces within the Wikimedia Design System. It includes
+documentation, design tokens, and Vue 3 components.
 
-## The Wikimedia Design System
+**TODO: talk about what you can do with this toolkit**
 
-This component library works in tandem with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html), which documents all of our
-design standards and decisions.
+**TODO: enumerate the features of this library that make it exceptional (unmatched i18n support, a11y baked in, etc)**
+
+This library works in tandem with the [Wikimedia Design Style Guide](https://design.wikimedia.org/style-guide/components/links.html), which documents all of our design standards and decisions.
+
+## Usage and contributions
+
+Visit [Getting started](/introduction/getting-started) to learn how to use this library.
+
+If you'd like to contribute, head over to the [Contributing section](/contributing/guidelines) to
+learn about ways you can contribute, our processes, and how to develop this library.
+
+## Maintainers
+
+TODO: explanation (DST are maintainers but contributions come from WMF, WMDE, and volunteers)
+
+TODO: links (Phab, mediawiki.org pages, etc)
 
 ## Guiding principles
 
@@ -19,7 +36,7 @@ We want the library to make building user interfaces straightforward and fast. W
 
 #### Accessibility and internationalization
 
-Wikimedia intends to serve every human being, eventually. We will follow [Wikimedia's accessibility principles](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) and aim to support many languages.
+Wikimedia intends to serve every human being, eventually. We will follow [Wikimedia's accessibility principles](https://design.wikimedia.org/style-guide/design-principles_accessibility.html) and aim to support many languages. TODO: talk more about i18n
 
 #### Designed and built for the wider MediaWiki ecosystem
 
